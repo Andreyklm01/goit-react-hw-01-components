@@ -1,5 +1,5 @@
 import s from './Statistics.module.css';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Statistics = ({ title, stats }) => {
   return (
@@ -21,7 +21,13 @@ Statistics.defaultProps = {
   title: 'Upload stats',
 };
 Statistics.propTypes = {
-  title: propTypes.string,
-  stats: propTypes.array, //переделать!!!
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      percentage: PropTypes.number,
+    }),
+  ),
 };
 export default Statistics;

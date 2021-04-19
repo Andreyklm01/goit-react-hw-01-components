@@ -22,12 +22,15 @@ const TransactionHistory = ({ items }) => (
   </table>
 );
 
-//не проверяются типы( вынести tr в отдельный компонент тоже самое в 2 и 3 тасках
 TransactionHistory.propTypes = {
-  id: PropTypes.string,
-  type: PropTypes.string,
-  amount: PropTypes.number,
-  currency: PropTypes.string,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      type: PropTypes.string,
+      amount: PropTypes.string,
+      currency: PropTypes.string,
+    }),
+  ),
 };
 
 export default TransactionHistory;
